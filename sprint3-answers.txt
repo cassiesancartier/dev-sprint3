@@ -1,0 +1,8 @@
+What does file.readline do?
+
+This method reads a single line from a file.  If it returns an empty string, then an empty string is returned - though a blank link in the file will be represented by a newline (/n).
+
+What does String.strip do?
+
+This returns a copy of the string with the leading and trailing characters removed.  If there is no argument, then it defaults to removing whitespace - however you can call an argument that will specify which characters you want stripped from the string.
+

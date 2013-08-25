@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Episode 5</title>
+        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="/static/style.css" />
+		<script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			{% block body %} {% endblock %}
+		</div>
+		<div id="nav">
+			Navigation:<br />
+			<ul class="unstyled">
+				{% block nav %}{% endblock %}
+				<li><i class="icon-home"></i> <a href="{{url_for("main")}}">Index</a></li>
+				<li><i class="icon-info-sign"></i> <a href="/about/">About</a></li>
+				<li><i class="icon-envelope"></i> <a href="/contact/">Contact</a></li>
+				<hr noshade size=3 width="80%">
+				{% if 'username' in session %}
+				<li><i class="icon-leaf"></i> <a href="{{url_for("budget")}}">Daily Budget</a></li>
+				<li><i class="icon-asterisk"></i> <a href="{{url_for("remote")}}">Remote Control</a></li>
+				<li><i class="icon-headphones"></i> <a href="{{url_for("music")}}">Music</a></li>
+				<li><i class="icon-user"></i> <a href="{{url_for("login")}}">Logout</a></li>
+				{% else %}
+				<li><i class="icon-user"></i> <a href="{{url_for("login")}}">Login</a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div id = 'flashed'>
+		{% with messages = get_flashed_messages() %}
+		{% for message in messages %}
+			{{message}}
+		{% endfor %}
+		{% endwith %}
+		</div>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+    	<script src="js/bootstrap.min.js"></script>	
+	</body>
+</html>
